@@ -24,3 +24,28 @@
 - Outstanding issues: instructor-specific TF-IDF and CF examples cannot be verified without OI-01/OI-02 resources.
 - Checkpoint: **PHASE_01_PASS**.
 - Next phase: Phase 02 matrix factorization.
+
+## Phase 02 Matrix Factorization
+
+- Date: 2026-10-25 Asia/Bangkok
+- Selected skills: `karpathy-guidelines`, `scrutinize`.
+- Completed: explicit rating predictor with training-only mean, biases, latent factors, deterministic initialization, full-batch gradient descent, L2 regularization, validation-only grid search, explicit unknown-ID fallbacks, JSON state serialization/reconstruction, and full search preservation.
+- Mathematical convention: objective is half the mean observed squared error plus half lambda times the unaveraged squared parameter norm; each epoch uses simultaneous gradients from the old state. For one row, this exactly becomes the assignment's printed update.
+- Files created or modified: `src/lab11c/matrix_factorization.py`, `tests/test_matrix_factorization.py`, `scripts/run_phase02.py`, `docs/MATRIX_FACTORIZATION.md`, `artifacts/evidence/mf_*`, and `artifacts/models/selected_mf_state.json`.
+- Test results: full suite -> 12 passed. The mandatory trace produced prediction 3.24, residual 0.76, `bu=0.2370`, `bi=-0.0615`, `p=[0.2180,0.4018]`, and `q=[0.5051,0.1147]`. Serialized dimensions are 71x8 and 70x8; reconstructed predictions match.
+- Validation selection: 12 predeclared candidates; selected factors 8, learning rate 0.2, regularization 0.01, 300 epochs, seed 202411; RMSE 1.7746769324 on 17 eligible validation events. Test scores were not used.
+- Scrutinize trace: source row -> encoded training indices -> simultaneous old-state gradient -> saved arrays -> reconstructed ID mappings -> identical prediction. The simpler batch implementation was retained because it matches the stated mean-loss objective directly.
+- Outstanding issues: selected grid is an independent variant because companion candidates are unavailable.
+- Checkpoint: **PHASE_02_PASS**.
+- Next phase: Phase 03 six recommendation methods and hybrid construction.
+
+## Phase 03 Six Recommendation Methods and Hybrid Construction
+
+- Date: 2026-10-25 Asia/Bangkok
+- Selected skills: `karpathy-guidelines`; `caveman-commit` for the checkpoint message.
+- Completed: popularity, TF-IDF content, user CF, item CF, matrix factorization, and content-factor hybrid; one shared training-known candidate universe; training-seen exclusion; popularity fallback; co-rated, centered, shrunk deterministic neighborhoods; per-request hybrid scaling; exact tie policy; full score and ranking traces for validation user 28.
+- Independent settings: minimum co-rated overlap 2, shrinkage 10, maximum 20 neighbors, minimum one contributing neighbor, positive similarities only. These are frozen settings selected without held-out labels because the companion is absent.
+- Files created or modified: `src/lab11c/recommenders.py`, `tests/test_recommenders.py`, `scripts/run_phase03.py`, `artifacts/evidence/recommender_configuration.json`, and `artifacts/results/phase03_*_trace.csv`.
+- Test results: full suite -> 17 passed. Tests cover constant-component scaling, hybrid endpoints, candidate exclusion, maximum Top-5, uniqueness, deterministic ordering, and unknown-user fallback across all six methods.
+- Checkpoint: **PHASE_03_PASS**.
+- Next phase: Phase 04 validation, alpha selection, and configuration freeze.

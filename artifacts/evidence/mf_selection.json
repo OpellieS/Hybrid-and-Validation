@@ -1,0 +1,26 @@
+{
+  "model_state_sha256": "6bb935145360628405559f3e4881744fee9e969e1e065b43d79808947883c04e",
+  "selected_candidate_id": "4458aa9b27ec",
+  "selected_config": {
+    "epochs": 300,
+    "factors": 8,
+    "init_std": 0.05,
+    "learning_rate": 0.2,
+    "regularization": 0.01,
+    "seed": 202411
+  },
+  "selection_metric": "minimum validation RMSE on warm-user and training-known-item rating events",
+  "test_rows_accessed": false,
+  "tie_break": [
+    "validation MAE",
+    "fewer factors",
+    "lower regularization",
+    "lower learning rate",
+    "candidate ID"
+  ],
+  "validation_metrics": {
+    "events": 17,
+    "mae": 1.4883519650552022,
+    "rmse": 1.774676932413278
+  }
+}
