@@ -1,0 +1,34 @@
+{
+  "configuration_hash": "6e1576037b46550bf1f198590adb207f931cc1a21f206520f916254256bfa117",
+  "environment": {
+    "logical_cpu_count": 12,
+    "physical_cpu_count": 6,
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "python": "3.12.15 (main, Oct 14 2026, 01:08:45) [MSC v.1944 64 bit (AMD64)]",
+    "total_system_memory_bytes": 33459179520
+  },
+  "evaluation_measurement": {
+    "peak_process_rss_bytes": 135323648,
+    "peak_python_traced_bytes": 287734,
+    "scope": "all six frozen methods over the nine ranking-eligible test users",
+    "wall_seconds": 0.22781749999921885
+  },
+  "input": {
+    "files": {
+      "interaction_events-2.csv": 4211,
+      "synthetic_teaching_catalog-2.csv": 3427,
+      "tiny_content_catalog-2.csv": 215,
+      "tiny_ratings-2.csv": 113
+    },
+    "interaction_rows": 200,
+    "total_bytes": 7966,
+    "training_rows": 121
+  },
+  "training_measurement": {
+    "peak_process_rss_bytes": 135184384,
+    "peak_python_traced_bytes": 75548,
+    "scope": "isolated replay of the frozen MF configuration; not used for selection or test predictions",
+    "wall_seconds": 0.05692819999967469
+  }
+}

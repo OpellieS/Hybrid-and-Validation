@@ -1,0 +1,16 @@
+{
+  "eligible_users": 9,
+  "limitation": "With nine user clusters, percentile endpoints are discrete and unstable; intervals cannot support strong model-superiority claims.",
+  "paired_models": [
+    "hybrid",
+    "popularity"
+  ],
+  "paired_resampling": "same user index draw used for both models through per-user differences",
+  "percentile_interval": [
+    2.5,
+    97.5
+  ],
+  "replicates": 10000,
+  "seed": 202406,
+  "unit": "ranking-eligible user cluster"
+}

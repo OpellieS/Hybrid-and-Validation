@@ -64,3 +64,29 @@
 - Outstanding issue: selected alpha differs from the reference because the available evidence produces a complete primary-metric tie under the declared independent implementation.
 - Checkpoint: **PHASE_04_PASS** and **CONFIG_FROZEN**.
 - Next phase: Phase 05 untouched test evaluation.
+
+## Phase 05 Untouched Test Evaluation
+
+- Date: 2026-10-25 Asia/Bangkok
+- Selected skills: `scrutinize`.
+- Completed: validated the frozen-manifest hash before loading test rows; loaded the frozen alpha 0.50 and recommender settings; evaluated all six methods without refitting; saved aggregate, per-user, and per-rank outputs; calculated coverage, content diversity, warm/cold segments, denominators, and MF rating error on 18 eligible events.
+- Verified matches: nine evaluable users; popularity, user CF, item CF, and factor ranking metrics are all zero; both CF methods fall back for all nine users; popularity and CF coverage is exactly 5/70.
+- Honest mismatches: content and hybrid each hit ProductID 552 for warm user 33, so their P@5 is 0.0222222, R@5 is 0.1111111, and NDCG@5 is 0.0701033 and 0.0478530 respectively rather than zero. Content/hybrid coverage is 29/70 rather than 19/70 and 22/70. Factor coverage is 11/70 rather than 12/70. These differences are consistent with unavailable companion conventions and were not used to change the experiment.
+- Files created or modified: `scripts/run_phase05.py`, `artifacts/results/test_*`, and `artifacts/evidence/test_reference_comparison.json`.
+- Test results: full suite -> 20 passed before test evaluation; frozen configuration hash remained `6e1576037b46550bf1f198590adb207f931cc1a21f206520f916254256bfa117`.
+- Checkpoint: **PHASE_05_PASS**.
+- Next phase: Phase 06 leakage, bootstrap, and resource audit.
+
+## Phase 06 Leakage Bootstrap and Resource Audit
+
+- Date: 2026-10-25 Asia/Bangkok
+- Selected skills: `scrutinize`, `karpathy-guidelines`; `caveman-commit` for the checkpoint message.
+- Completed: eight temporal provenance assertions plus candidate-universe assertion; isolated contaminated negative test; 10,000-replicate user-cluster bootstrap for every method and metric; paired hybrid-minus-popularity bootstrap using identical user draws; deterministic resource benchmark replay; environment and input-size capture.
+- Leakage result: every training-fitted object ends at 2024-05-20 18:42:23 UTC, both selection decisions end at 2024-06-12 15:54:30 UTC, and the candidate set contains exactly 70 training items with zero future-only overlap. The contaminated copy at 2024-06-13 00:30:36 UTC failed as expected; the real experiment was unchanged.
+- Uncertainty result: n=9 user clusters. Hybrid-minus-popularity paired differences are 0.0222222 P@5 [0, 0.0666667], 0.1111111 R@5 [0, 0.3333333], and 0.0478530 NDCG@5 [0, 0.1435589]. Every interval includes zero; the discrete intervals are not evidence of model superiority.
+- Resource result: isolated frozen MF replay 0.0569 s; all-method evaluation 0.2278 s; sampled peak RSS about 135 MB. These measurements are environment-specific and the replay never replaced the frozen state.
+- Files created or modified: `src/lab11c/audit.py`, `src/lab11c/bootstrap.py`, `tests/test_audit_bootstrap.py`, `scripts/run_phase06.py`, bootstrap evidence/results, `leakage_audit.json`, and `resource_audit.json`.
+- Test results: full suite -> 23 passed; deliberately contaminated assertion failed inside both unit test and isolated audit path as required.
+- Scrutinize trace: frozen hash -> fitted timestamps and candidate set -> isolated failure proof -> previously saved per-user test rows -> cluster resamples -> paired differences. Recommendation positions were never treated as independent units.
+- Checkpoint: **PHASE_06_PASS**.
+- Next phase: Phase 07 A/B experiment, notebook, methodological defense, archive, and final QA.
