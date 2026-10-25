@@ -1,0 +1,125 @@
+{
+  "cf_U0_U1_overlap": 3,
+  "cf_U0_U1_similarity": 0.7921180343813393,
+  "cosine_A_B": 0.9315437234959278,
+  "cosine_A_C": 0.0,
+  "declared_variant": {
+    "cf_similarity": "cosine of global-mean-centered ratings on co-rated entries",
+    "idf": "ln(number_of_documents/document_frequency), no smoothing or additive constant",
+    "normalization": "row L2",
+    "profile": "absolute-rating-weighted average of L2 item vectors, then L2 normalize",
+    "reason": "Week 12 deck and companion script were unavailable",
+    "tf": "0 if count=0 else 1+ln(count)",
+    "tokenization": "lowercase whitespace tokens"
+  },
+  "global_observed_mean": 3.3157894736842106,
+  "idf": {
+    "coffee": 0.28768207245178085,
+    "herbal": 0.6931471805599453,
+    "roast": 0.6931471805599453,
+    "tea": 0.6931471805599453
+  },
+  "observed_count": 19,
+  "observed_mask": [
+    [
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "rating_weighted_profile_A_B_C": [
+    0.40651549763578093,
+    0.2304036244809716,
+    0.7933950187044423,
+    0.3901072471807495
+  ],
+  "row_l2_norms": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "term_counts": [
+    {
+      "coffee": 2,
+      "roast": 1
+    },
+    {
+      "coffee": 1,
+      "roast": 2
+    },
+    {
+      "herbal": 1,
+      "tea": 2
+    },
+    {
+      "coffee": 1,
+      "herbal": 1,
+      "tea": 1
+    }
+  ],
+  "tfidf_l2": [
+    [
+      0.574954756247397,
+      0.0,
+      0.8181852041368729,
+      0.0
+    ],
+    [
+      0.23807935510366748,
+      0.0,
+      0.9712457056138893,
+      0.0
+    ],
+    [
+      0.0,
+      0.5085423203783268,
+      0.0,
+      0.8610369959439765
+    ],
+    [
+      0.2815994630432826,
+      0.678491614691639,
+      0.0,
+      0.678491614691639
+    ]
+  ],
+  "user_observed_means": [
+    4.0,
+    3.75,
+    2.25,
+    4.0,
+    2.75
+  ],
+  "vocabulary": [
+    "coffee",
+    "herbal",
+    "roast",
+    "tea"
+  ]
+}

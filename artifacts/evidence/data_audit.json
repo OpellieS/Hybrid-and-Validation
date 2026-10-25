@@ -1,0 +1,118 @@
+{
+  "catalog": {
+    "extra_catalog_items": [],
+    "matches_training_items": true,
+    "missing_training_items": [],
+    "rows": 70
+  },
+  "duplicate_user_item_pairs": 0,
+  "missing_required_values": 0,
+  "rating_values": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rows": 200,
+  "schema": {
+    "EventTime": "datetime64[us, UTC]",
+    "ProductID": "str",
+    "Rating": "int8",
+    "SourceRow": "int64",
+    "Timestamp": "int64",
+    "UserID": "str"
+  },
+  "source_sha256": "f55471cadb4740a4e15187bea6b8a7b8143f7c9ac3c764269031348fcfbcc079",
+  "test": {
+    "cold_ranking_eligible_users": 2,
+    "cold_user_events": 11,
+    "cold_users": [
+      "3",
+      "44",
+      "54",
+      "65",
+      "79",
+      "87",
+      "90"
+    ],
+    "events": 41,
+    "future_only_item_events": 17,
+    "future_only_items": [
+      "504",
+      "506",
+      "514",
+      "523",
+      "525",
+      "526",
+      "528",
+      "535",
+      "541",
+      "544",
+      "550",
+      "558",
+      "583",
+      "596"
+    ],
+    "items": 37,
+    "known_item_events": 24,
+    "name": "test",
+    "ranking_eligible_users": 9,
+    "rating_error_eligible_events": 18,
+    "users": 32,
+    "warm_ranking_eligible_users": 7,
+    "warm_user_events": 30
+  },
+  "test_start_inclusive": "2024-06-13T00:00:00+00:00",
+  "time_max": "2024-07-03T03:17:47+00:00",
+  "time_min": "2024-03-09T19:14:56+00:00",
+  "train": {
+    "events": 121,
+    "items": 70,
+    "max_time": "2024-05-20T18:42:23+00:00",
+    "min_time": "2024-03-09T19:14:56+00:00",
+    "users": 71
+  },
+  "train_end_exclusive": "2024-05-21T00:00:00+00:00",
+  "unique_products": 90,
+  "unique_users": 87,
+  "validation": {
+    "cold_ranking_eligible_users": 6,
+    "cold_user_events": 18,
+    "cold_users": [
+      "1",
+      "13",
+      "21",
+      "3",
+      "38",
+      "44",
+      "80",
+      "85",
+      "87",
+      "88",
+      "94",
+      "99"
+    ],
+    "events": 38,
+    "future_only_item_events": 9,
+    "future_only_items": [
+      "511",
+      "527",
+      "541",
+      "544",
+      "558",
+      "563",
+      "568",
+      "574",
+      "597"
+    ],
+    "items": 32,
+    "known_item_events": 29,
+    "name": "validation",
+    "ranking_eligible_users": 10,
+    "rating_error_eligible_events": 17,
+    "users": 30,
+    "warm_ranking_eligible_users": 4,
+    "warm_user_events": 20
+  }
+}
