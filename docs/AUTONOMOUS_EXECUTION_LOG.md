@@ -49,3 +49,18 @@
 - Test results: full suite -> 17 passed. Tests cover constant-component scaling, hybrid endpoints, candidate exclusion, maximum Top-5, uniqueness, deterministic ordering, and unknown-user fallback across all six methods.
 - Checkpoint: **PHASE_03_PASS**.
 - Next phase: Phase 04 validation, alpha selection, and configuration freeze.
+
+## Phase 04 Validation Model Selection and Freeze
+
+- Date: 2026-10-25 Asia/Bangkok
+- Selected skills: `scrutinize`, `karpathy-guidelines`; `caveman-commit` for the checkpoint message.
+- Completed: binary user-level P@5, R@5, and NDCG@5; explicit ranking/rating denominators; warm/cold segments; validation evaluation for all six methods; complete alpha grid; factor MAE/RMSE; coverage/diversity; immutable hash-verified experiment manifest.
+- Alpha result: all five alpha values tied at validation Precision@5 0.02, Recall@5 0.10, and NDCG@5 0.0430676558 across ten eligible users. The predeclared tie rule selected alpha 0.50 as closest to a balanced blend. The reported reference alpha 0.75 was not forced.
+- Freeze evidence: `artifacts/frozen_experiment_manifest.json` and `artifacts/evidence/CONFIG_FROZEN`; configuration hash `6e1576037b46550bf1f198590adb207f931cc1a21f206520f916254256bfa117`.
+- Freeze contents: model and recommender configuration, alpha, seed, candidate and fallback policies, metric definitions, tie rules, all four CSV hashes, software versions, fitted-state checksums, fit cutoff, and validation-artifact hashes.
+- Files created or modified: `src/lab11c/evaluation.py`, `src/lab11c/freeze.py`, `tests/test_evaluation_freeze.py`, `scripts/run_phase04.py`, validation evidence/results, and the frozen manifest.
+- Test results: full suite -> 20 passed, including metric arithmetic and manifest tamper detection.
+- Scrutinize trace: validation rows -> eligible positive sets -> shared ranking path -> per-user contributions -> aggregate alpha record -> declared tie rule -> manifest payload -> canonical hash -> reload verification. No final-test performance was evaluated before the gate.
+- Outstanding issue: selected alpha differs from the reference because the available evidence produces a complete primary-metric tie under the declared independent implementation.
+- Checkpoint: **PHASE_04_PASS** and **CONFIG_FROZEN**.
+- Next phase: Phase 05 untouched test evaluation.

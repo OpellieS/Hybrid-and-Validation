@@ -1,0 +1,89 @@
+{
+  "candidate_policy": "exactly 70 training-known products minus the request user's training-seen products; future-only items excluded",
+  "configuration_hash": "6e1576037b46550bf1f198590adb207f931cc1a21f206520f916254256bfa117",
+  "created_before_test_evaluation": true,
+  "dataset_hashes": {
+    "interaction_events-2.csv": "f55471cadb4740a4e15187bea6b8a7b8143f7c9ac3c764269031348fcfbcc079",
+    "synthetic_teaching_catalog-2.csv": "3ae6e546db49ecfe022215018f6f552e82fd5453bfaad1da6b49d452c07c949c",
+    "tiny_content_catalog-2.csv": "ad71aea6b4b268dd8990f03e2da550545f2359165daf9bdd42db645c46091d7f",
+    "tiny_ratings-2.csv": "04e330d8ed392755ad85832ebf408c247018f87030bc011e1aa5adfadd059052"
+  },
+  "fallback_policy": "unknown users and zero/unsupported request models route to descending training popularity",
+  "fitted_max_event_time": "2024-05-20T18:42:23+00:00",
+  "fitted_state_checksums": {
+    "candidate_items": "96584c5a7d635f88d83900a075cbf41717cdcd6ed5b8613703c1c472769b1544",
+    "content": "ca85f6981a7940a539f99dfe36a2c52f8604b885e6a2fbbee647a26efd01bf53",
+    "matrix_factor_state": "6bb935145360628405559f3e4881744fee9e969e1e065b43d79808947883c04e",
+    "popularity": "31b996a0e0a167edfee95ea86feaa00ca5d90c4b6e521d8de18611018347dc27",
+    "rating_matrix": "8b0c553d2b067d70f66b21dfe8e70a054155d38f2800831ccd3bf2f8c44bc316"
+  },
+  "known_reference_not_used_for_selection": {
+    "reported_alpha": 0.75,
+    "reported_coverages": [
+      0.071429,
+      0.271429,
+      0.171429,
+      0.314286
+    ],
+    "reported_test_metrics": "all ranking metrics zero"
+  },
+  "metric_definitions": {
+    "coverage": "distinct recommended items divided by 70 training-known products",
+    "diversity": "mean pairwise 1-content-cosine within each distinct list, then mean across eligible lists",
+    "ndcg_at_5": "binary DCG with log2(rank+1) discount divided by ideal DCG, macro mean",
+    "positive": "heldout Rating >= 4 and ProductID training-known",
+    "precision_at_5": "hits divided by fixed K=5, macro mean over eligible users",
+    "rating_error": "MAE/RMSE on warm-user and training-known-item events; predictions clipped to [1,5]",
+    "recall_at_5": "hits divided by each user's eligible positives, macro mean"
+  },
+  "model_configuration": {
+    "alpha_grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "hybrid_formula": "alpha * scaled_content + (1-alpha) * scaled_factor",
+    "matrix_factorization": {
+      "epochs": 300,
+      "factors": 8,
+      "init_std": 0.05,
+      "learning_rate": 0.2,
+      "regularization": 0.01,
+      "seed": 202411
+    },
+    "recommender": {
+      "k": 5,
+      "max_neighbors": 20,
+      "min_neighbor_support": 1,
+      "min_overlap": 2,
+      "positive_similarity_only": true,
+      "similarity_shrinkage": 10.0
+    }
+  },
+  "seeds": {
+    "matrix_factorization": 202411
+  },
+  "selected_alpha": 0.5,
+  "software_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.15",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1"
+  },
+  "status": "CONFIG_FROZEN",
+  "tie_breaking": [
+    "recommendation score descending",
+    "training popularity descending",
+    "ProductID lexical ascending"
+  ],
+  "training_boundary_exclusive": "2024-05-21T00:00:00+00:00",
+  "validation_artifacts": {
+    "alpha_search_sha256": "cd20a5c3979dcd0461a9906f80bc062fabdeed515b61aa104c2f17aec2f7b1d0",
+    "method_metrics_sha256": "829d340c9677cb27f3e5c529b8bf5155fef7929318fbbca928fd3ed4a526f2f2"
+  },
+  "validation_boundary_exclusive": "2024-06-13T00:00:00+00:00"
+}

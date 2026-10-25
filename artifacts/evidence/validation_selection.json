@@ -1,0 +1,26 @@
+{
+  "alpha_grid_predeclared": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "mf_rating_errors": {
+    "events": 17,
+    "mae": 1.4883519650552022,
+    "rmse": 1.774676932413278
+  },
+  "ranking_eligible_users": 10,
+  "reference_alpha": 0.75,
+  "reference_alpha_forced": false,
+  "selected_alpha": 0.5,
+  "selection_order": [
+    "NDCG@5 descending",
+    "Recall@5 descending",
+    "Precision@5 descending",
+    "distance from balanced alpha=0.5 ascending",
+    "alpha ascending"
+  ],
+  "test_performance_evaluated": false
+}
