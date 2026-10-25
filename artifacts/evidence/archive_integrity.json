@@ -1,0 +1,25 @@
+{
+  "archive": "submission\\961731_STUDENTID_REQUIRED_Lab11C.zip",
+  "bytes": 762810,
+  "crc_test_pass": true,
+  "entries": 79,
+  "excluded_roots": [
+    ".git",
+    ".ipynb_checkpoints",
+    ".pytest_cache",
+    ".venv",
+    "__pycache__",
+    "submission",
+    "tmp"
+  ],
+  "missing_instructor_resources_not_fabricated": [
+    "Week12 - Recommendation Systems.pdf",
+    "Recommendation System.pptx",
+    "instructor companion script",
+    "reference notebook",
+    "original reference outputs"
+  ],
+  "required_entries_pass": true,
+  "sha256": "c361fd7a331c41e6fe147e1a31aec0aaf7f993e62ac551f948db8e649feccd63",
+  "student_id_status": "missing; staging filename used"
+}

@@ -9,10 +9,10 @@
     "total_system_memory_bytes": 33459179520
   },
   "evaluation_measurement": {
-    "peak_process_rss_bytes": 135323648,
-    "peak_python_traced_bytes": 287734,
+    "peak_process_rss_bytes": 133996544,
+    "peak_python_traced_bytes": 282463,
     "scope": "all six frozen methods over the nine ranking-eligible test users",
-    "wall_seconds": 0.22781749999921885
+    "wall_seconds": 0.24511159999747179
   },
   "input": {
     "files": {
@@ -26,9 +26,9 @@
     "training_rows": 121
   },
   "training_measurement": {
-    "peak_process_rss_bytes": 135184384,
-    "peak_python_traced_bytes": 75548,
+    "peak_process_rss_bytes": 134717440,
+    "peak_python_traced_bytes": 76311,
     "scope": "isolated replay of the frozen MF configuration; not used for selection or test predictions",
-    "wall_seconds": 0.05692819999967469
+    "wall_seconds": 0.058087999997951556
   }
 }

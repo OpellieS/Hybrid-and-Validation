@@ -90,3 +90,19 @@
 - Scrutinize trace: frozen hash -> fitted timestamps and candidate set -> isolated failure proof -> previously saved per-user test rows -> cluster resamples -> paired differences. Recommendation positions were never treated as independent units.
 - Checkpoint: **PHASE_06_PASS**.
 - Next phase: Phase 07 A/B experiment, notebook, methodological defense, archive, and final QA.
+
+## Phase 07 A B Experiment Final Notebook and Submission QA
+
+- Date: 2026-10-25 Asia/Bangkok
+- Selected skills: `documents`, `pdf`, `karpathy-guidelines`, `scrutinize`; `caveman-commit` for the final checkpoint message.
+- Completed: prespecified user-randomized A/B proposal; reproducibility guide; polished source notebook; fresh-kernel executed notebook; exactly two-page methodological-defense PDF; text and raster QA; final requirements review; staging archive builder; contents manifest; CRC, required-entry, and secret/cache exclusion checks; final QA report.
+- A/B design: stable 1:1 user assignment, current policy/popularity control, frozen alpha-0.50 hybrid treatment, one seven-day purchase-conversion primary outcome, operational/business guardrails, 2 percentage-point illustrative MDE from a 10% baseline, 3,841 users/arm before 5% inflation, 14-day/two-cycle minimum, fixed stopping, exposure logging, and Thai PDPA review.
+- Notebook verification: 21 cells, nine code cells with ordered execution counts 1-9, no error outputs, valid notebook schema, and successful top-to-bottom execution from a fresh kernel. The notebook reruns Phases 01-06 in order.
+- PDF verification: two pages by `pypdf`; required sections found by `pdfplumber`; both pages rendered with PDFium at 2x and visually inspected. No clipping, overlap, broken table, or missing glyphs was found.
+- Final tests: `pytest -q` -> 26 passed.
+- Archive: `submission/961731_STUDENTID_REQUIRED_Lab11C.zip`; 79-entry first QA build passed CRC and required-entry checks. The final build is regenerated after this log update, with its hash recorded in `artifacts/evidence/archive_integrity.json` and the adjacent `.sha256` sidecar.
+- Git/source hygiene: archive excludes `.git`, `.venv`, caches, temporary render images, credentials, and the archive directory itself. Original source files and all independent evidence remain preserved.
+- Scrutinize verdict: **conditional ship**. The implementation and evidence are complete; only the real student ID and unavailable instructor resources prevent an unconditional exact-reference submission.
+- Outstanding issues: OI-01 through OI-04 as dispositioned in `docs/OPEN_ISSUES.md`; only OI-04 is actionable by the user now.
+- Checkpoint: **PHASE_07_CONDITIONAL**.
+- Next phase: none. Rename the ZIP after the actual student ID is supplied; do not alter the frozen experiment to chase the reference outputs.
